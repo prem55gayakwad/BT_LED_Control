@@ -371,6 +371,6 @@
 		<sdkComponents>platform.driver.lpuart;platform.driver.clock;platform.driver.interrupt_manager;platform.driver.pins;platform.driver.edma;platform.driver.osif;platform.driver.osif_baremetal</sdkComponents>
 	</storageModule>
 	<storageModule moduleId="com.nxp.s32ds.cle.uct.internal.core.toolchainScriptProfile">
-		<COND_TOOLCHAIN_COMPONENTS_OPTION>platform.driver.osif;platform.driver.osif_baremetal;platform.driver.lpuart;platform.driver.edma;</COND_TOOLCHAIN_COMPONENTS_OPTION>
+		<COND_TOOLCHAIN_COMPONENTS_OPTION>platform.driver.osif;platform.driver.osif_baremetal;platform.driver.edma;platform.driver.lpuart;</COND_TOOLCHAIN_COMPONENTS_OPTION>
 	</storageModule>
 </cproject>

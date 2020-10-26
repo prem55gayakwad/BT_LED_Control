@@ -1099,8 +1099,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x8a ./src/main.o
  .debug_macro   0x00000000       0x16 ./src/main.o
  .debug_macro   0x00000000      0x16d ./src/main.o
- .debug_macro   0x00000000       0x10 ./src/main.o
  .debug_macro   0x00000000       0x16 ./src/main.o
+ .debug_macro   0x00000000       0x10 ./src/main.o
  .debug_macro   0x00000000       0x10 ./src/main.o
  .text          0x00000000        0x0 C:/NXP/S32DS.3.3/S32DS/build_tools/gcc_b1620/gcc-6.3-arm32-eabi/arm-none-eabi/newlib/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-exit.o)
  .data          0x00000000        0x0 C:/NXP/S32DS.3.3/S32DS/build_tools/gcc_b1620/gcc-6.3-arm32-eabi/arm-none-eabi/newlib/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-exit.o)
@@ -1584,7 +1584,7 @@ LOAD c:/nxp/s32ds.3.3/s32ds/build_tools/gcc_v6.3/gcc-6.3-arm32-eabi/bin/../lib/g
                 0x20000000                __CUSTOM_ROM = .
                 0x20000000                __CUSTOM_END = .
 
-.data           0x20000000      0x298
+.data           0x20000000      0x2c8
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __DATA_RAM = .
                 0x20000000                __data_start__ = .
@@ -1601,47 +1601,47 @@ LOAD c:/nxp/s32ds.3.3/s32ds/build_tools/gcc_v6.3/gcc-6.3-arm32-eabi/bin/../lib/g
                 0x20000168                peripheralClockConfig0
  *fill*         0x20000235        0x3 
  .data.g_pin_mux_InitConfigArr0
-                0x20000238       0x60 ./board/pin_mux.o
+                0x20000238       0x90 ./board/pin_mux.o
                 0x20000238                g_pin_mux_InitConfigArr0
-                0x20000298                . = ALIGN (0x4)
-                0x20000298                __data_end__ = .
+                0x200002c8                . = ALIGN (0x4)
+                0x200002c8                __data_end__ = .
 
-.igot.plt       0x20000298        0x0
- .igot.plt      0x20000298        0x0 c:/nxp/s32ds.3.3/s32ds/build_tools/gcc_v6.3/gcc-6.3-arm32-eabi/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.igot.plt       0x200002c8        0x0
+ .igot.plt      0x200002c8        0x0 c:/nxp/s32ds.3.3/s32ds/build_tools/gcc_v6.3/gcc-6.3-arm32-eabi/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.bss            0x20000298       0x1c
-                0x20000298                . = ALIGN (0x4)
-                0x20000298                __BSS_START = .
-                0x20000298                __bss_start__ = .
+.bss            0x200002c8       0x1c
+                0x200002c8                . = ALIGN (0x4)
+                0x200002c8                __BSS_START = .
+                0x200002c8                __bss_start__ = .
  *(.bss)
  *(.bss*)
  .bss.s_virtEdmaState
-                0x20000298        0x4 ./SDK/platform/drivers/src/edma/edma_driver.o
+                0x200002c8        0x4 ./SDK/platform/drivers/src/edma/edma_driver.o
  .bss.s_osif_tick_cnt
-                0x2000029c        0x4 ./SDK/rtos/osif/osif_baremetal.o
+                0x200002cc        0x4 ./SDK/rtos/osif/osif_baremetal.o
  *(COMMON)
- COMMON         0x200002a0       0x14 ./SDK/platform/drivers/src/clock/S32K1xx/clock_S32K1xx.o
-                0x200002a0                g_xtal0ClkFreq
-                0x200002a4                g_RtcClkInFreq
-                0x200002a8                g_TClkFreq
-                0x200002b4                . = ALIGN (0x4)
-                0x200002b4                __bss_end__ = .
-                0x200002b4                __BSS_END = .
+ COMMON         0x200002d0       0x14 ./SDK/platform/drivers/src/clock/S32K1xx/clock_S32K1xx.o
+                0x200002d0                g_xtal0ClkFreq
+                0x200002d4                g_RtcClkInFreq
+                0x200002d8                g_TClkFreq
+                0x200002e4                . = ALIGN (0x4)
+                0x200002e4                __bss_end__ = .
+                0x200002e4                __BSS_END = .
 
-.heap           0x200002b4      0x404
-                0x200002b8                . = ALIGN (0x8)
- *fill*         0x200002b4        0x4 
-                0x200002b8                __end__ = .
-                0x200002b8                __heap_start__ = .
+.heap           0x200002e4      0x404
+                0x200002e8                . = ALIGN (0x8)
+ *fill*         0x200002e4        0x4 
+                0x200002e8                __end__ = .
+                0x200002e8                __heap_start__ = .
                 [!provide]                PROVIDE (end, .)
                 [!provide]                PROVIDE (_end, .)
                 [!provide]                PROVIDE (__end, .)
-                0x200002b8                __HeapBase = .
-                0x200006b8                . = (. + HEAP_SIZE)
- *fill*         0x200002b8      0x400 
-                0x200006b8                __HeapLimit = .
-                0x200006b8                __heap_limit = .
-                0x200006b8                __heap_end__ = .
+                0x200002e8                __HeapBase = .
+                0x200006e8                . = (. + HEAP_SIZE)
+ *fill*         0x200002e8      0x400 
+                0x200006e8                __HeapLimit = .
+                0x200006e8                __heap_limit = .
+                0x200006e8                __heap_end__ = .
                 0x2001f000                __StackTop = (ORIGIN (m_data) + LENGTH (m_data))
                 0x2001ec00                __StackLimit = (__StackTop - STACK_SIZE)
                 0x2001f000                PROVIDE (__stack, __StackTop)

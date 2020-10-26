@@ -53,6 +53,12 @@
                         <pin_feature name="direction" value="OUTPUT"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="LPUART1" signal="rxd" pin_num="118" pin_signal="PTC6"/>
+                  <pin peripheral="LPUART1" signal="txd" pin_num="117" pin_signal="PTC7">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
          </functions_list>
@@ -246,6 +252,16 @@
       </quadspi>
       <periphs name="Peripherals" version="7.0" enabled="true" update_project_code="true">
          <dependencies>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="eDMA Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="Unsupported version of the eDMA Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.driver.lpuart" description="LPUART Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
@@ -262,16 +278,6 @@
                </feature>
             </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.driver.osif" description="Unsupported version of the OSIF driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">1.0.0</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="eDMA Driver not found in the toolchain/IDE project. Project will not compile!" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.driver.edma" description="Unsupported version of the eDMA Driver in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. Project might not compile correctly." problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">1.0.0</data>
                </feature>
@@ -295,27 +301,6 @@
                <options/>
                <dependencies/>
                <instances>
-                  <instance name="lpuart_1" uuid="766170aa-abd4-4763-b86c-f903d0810355" type="lpuart_config" type_id="lpuart" mode="general" peripheral="LPUART_1" enabled="true" comment="" custom_name_enabled="false">
-                     <config_set name="lpuart_driver" quick_selection="dv_lpuart1">
-                        <setting name="lpuart_state_name" value="lpUartState1"/>
-                        <array name="lpuart_configuration">
-                           <struct name="0">
-                              <setting name="name" value="lpuart_1_InitConfig0"/>
-                              <setting name="readonly" value="true"/>
-                              <setting name="transferType" value="LPUART_USING_INTERRUPTS"/>
-                              <setting name="baudRate" value="9600"/>
-                              <setting name="parityMode" value="LPUART_PARITY_DISABLED"/>
-                              <setting name="stopBitCount" value="LPUART_ONE_STOP_BIT"/>
-                              <setting name="bitCountPerChar" value="LPUART_8_BITS_PER_CHAR"/>
-                              <setting name="rxDMAChannel" value="0"/>
-                              <setting name="txDMAChannel" value="0"/>
-                           </struct>
-                        </array>
-                     </config_set>
-                  </instance>
-                  <instance name="osif_1" uuid="e6c94bb5-b8a5-469b-abf3-f24a8d16236c" type="osif" type_id="osif" mode="general" enabled="true" comment="" custom_name_enabled="false">
-                     <config_set name="osif"/>
-                  </instance>
                   <instance name="edma_config_1" uuid="95117779-30ee-4f73-b73f-550bde0b02fa" type="edma_config" type_id="edma" mode="general" peripheral="EDMA" enabled="true" comment="" custom_name_enabled="false">
                      <config_set name="edma_driver" quick_selection="edma_default">
                         <struct name="settings_edmaUserCfg">
@@ -341,6 +326,27 @@
                            </array>
                         </struct>
                      </config_set>
+                  </instance>
+                  <instance name="lpuart_1" uuid="766170aa-abd4-4763-b86c-f903d0810355" type="lpuart_config" type_id="lpuart" mode="general" peripheral="LPUART_1" enabled="true" comment="" custom_name_enabled="false">
+                     <config_set name="lpuart_driver" quick_selection="dv_lpuart1">
+                        <setting name="lpuart_state_name" value="lpUartState1"/>
+                        <array name="lpuart_configuration">
+                           <struct name="0">
+                              <setting name="name" value="lpuart_1_InitConfig0"/>
+                              <setting name="readonly" value="true"/>
+                              <setting name="transferType" value="LPUART_USING_INTERRUPTS"/>
+                              <setting name="baudRate" value="9600"/>
+                              <setting name="parityMode" value="LPUART_PARITY_DISABLED"/>
+                              <setting name="stopBitCount" value="LPUART_ONE_STOP_BIT"/>
+                              <setting name="bitCountPerChar" value="LPUART_8_BITS_PER_CHAR"/>
+                              <setting name="rxDMAChannel" value="0"/>
+                              <setting name="txDMAChannel" value="0"/>
+                           </struct>
+                        </array>
+                     </config_set>
+                  </instance>
+                  <instance name="osif_1" uuid="e6c94bb5-b8a5-469b-abf3-f24a8d16236c" type="osif" type_id="osif" mode="general" enabled="true" comment="" custom_name_enabled="false">
+                     <config_set name="osif"/>
                   </instance>
                </instances>
             </functional_group>
